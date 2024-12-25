@@ -66,20 +66,81 @@ print(len(name))
 type("hola mundo")
 ```
 
-## 7. Comparar objetos
+## 7. Precedencia de operadores
 
-Cuando se compara un objeto no anidado se usa **is** y no ==
+\*_, _, /, //, %, `, - (siempre usar parentesis)
+
+## 8. Operaciones con string
+
+Se concatena con + y se replica con \*.
 
 ```python
-obj = {
-  hola: "mundo"
-}
-
-obj2 = {
-  hola: "mundo"
-}
-
-print(obj == obj2)
-print(obj is obj2)
-
+a = 'A' + 'B'
+print(a)
+b = 'A'* 5
+print(b)
 ```
+
+## 9. Conversores
+
+str(), int(), float()
+
+## 10. Operadores de comparación
+
+==, :=, <, >, <=, >=
+
+## 11. Estructura for
+
+range(inicio, < final, salto)
+
+```python
+# impresión de números del 1 al 10
+for i in range(1, 11, 1):
+  print(i, " ", end="")
+```
+
+## 12. Módulo sys
+
+Acceso a variables del interprete python
+
+```python
+import sys
+
+print(sys.argv) # Lista de argumentos pasados al script
+sys.exit()  # Termina la ejecución del programa
+print(sys.version)  # Versión de Python
+print(sys.platform)  # Plataforma en la que se ejecuta (e.g., 'win32', 'linux')
+sys.stdout.write("Hola\n")  # Imprimir sin usar `print`
+sys.setrecursionlimit(2000)  # Cambia el límite de recursión
+```
+
+## 13. None y null
+
+A diferencia de otros lenguajes None es igual a null en python < NoneType >, representa la ausencia de valor o valor nulo.
+
+## 14. Keyword arguments
+
+Controlan el comportamiento de la función print.
+
+```python
+print("Hola", "mundo", sep="-")  # Salida: Hola-mundo
+
+print("Hola", end=", ")
+print("mundo")  # Salida: Hola, mundo
+
+# file destino de salida
+with open("salida.txt", "w") as f:
+    print("Esto va al archivo", file=f)
+
+# flush vaciado de bufer, útil en impresion en tiempo real
+import time
+for i in range(3):
+    print(i, end=" ", flush=True)
+    time.sleep(1)  # Salida inmediata: 0 1 2
+
+# Ejemplo
+print("Python", "es", "genial", sep="💡", end="!\n", flush=True)
+# Salida: Python💡es💡genial!
+```
+
+## 15. Uso de slices
